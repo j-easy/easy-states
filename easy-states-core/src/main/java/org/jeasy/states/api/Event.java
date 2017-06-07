@@ -38,12 +38,12 @@ public abstract class Event {
     /**
      * Event name.
      */
-    private String name;
+    protected String name;
 
     /**
      * Event triggering time stamp.
      */
-    private long timestamp;
+    protected long timestamp;
 
     protected Event() {
         this.name = Utils.DEFAULT_EVENT_NAME;
