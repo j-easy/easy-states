@@ -38,11 +38,6 @@ public final class Utils {
     private Utils() { }
 
     /**
-     * Default logger name.
-     */
-    public static final String LOGGER_NAME = "easy-states";
-
-    /**
      * Default event name.
      */
     public static final String DEFAULT_EVENT_NAME = "event";

@@ -27,7 +27,6 @@ package org.jeasy.states.core;
 import org.jeasy.states.api.*;
 import org.jeasy.states.jmx.FiniteStateMachineMonitor;
 import org.jeasy.states.jmx.FiniteStateMachineMonitorMBean;
-import org.jeasy.states.util.Utils;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
@@ -44,10 +43,7 @@ import java.util.logging.Logger;
  */
 final class FiniteStateMachineImpl implements FiniteStateMachine {
 
-    /**
-     * The logger instance.
-     */
-    private Logger logger = Logger.getLogger(Utils.LOGGER_NAME);
+    private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineImpl.class.getSimpleName());
 
     /**
      * FSM name.
@@ -105,12 +101,12 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     public final synchronized State fire(final Event event) throws FiniteStateMachineException {
 
         if (!finalStates.isEmpty() && finalStates.contains(currentState)) {
-            logger.log(Level.WARNING, "FSM is in final state '" + currentState.getName() + "', event " + event + " is ignored.");
+            LOGGER.log(Level.WARNING, "FSM is in final state '" + currentState.getName() + "', event " + event + " is ignored.");
             return currentState;
         }
 
         if (event == null) {
-            logger.log(Level.WARNING, "Null event fired, FSM state unchanged");
+            LOGGER.log(Level.WARNING, "Null event fired, FSM state unchanged");
             return currentState;
         }
 
@@ -134,7 +130,7 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
 
                     break;
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE, "An exception occurred during handling event " + event + " of transition " + transition, e);
+                    LOGGER.log(Level.SEVERE, "An exception occurred during handling event " + event + " of transition " + transition, e);
                     throw new FiniteStateMachineException(transition, event, e);
                 }
             }
@@ -159,10 +155,10 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
             if (!mbs.isRegistered(name)) {
                 FiniteStateMachineMonitorMBean finiteStateMachineMonitorMBean = new FiniteStateMachineMonitor(this);
                 mbs.registerMBean(finiteStateMachineMonitorMBean, name);
-                logger.info("Easy States JMX MBean registered successfully as: " + name.getCanonicalName());
+                LOGGER.info("Easy States JMX MBean registered successfully as: " + name.getCanonicalName());
             }
         } catch (Exception e) {
-            logger.log(Level.WARNING, "Unable to register Easy States JMX MBean.", e);
+            LOGGER.log(Level.WARNING, "Unable to register Easy States JMX MBean.", e);
         }
     }
 
