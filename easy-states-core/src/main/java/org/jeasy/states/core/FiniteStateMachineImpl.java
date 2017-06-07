@@ -25,12 +25,7 @@
 package org.jeasy.states.core;
 
 import org.jeasy.states.api.*;
-import org.jeasy.states.jmx.FiniteStateMachineMonitor;
-import org.jeasy.states.jmx.FiniteStateMachineMonitorMBean;
 
-import javax.management.MBeanServer;
-import javax.management.ObjectName;
-import java.lang.management.ManagementFactory;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -144,22 +139,6 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
 
     void registerFinalState(final State finalState) {
         finalStates.add(finalState);
-    }
-
-    // TODO extract in separate class
-    void configureJMXMBean() {
-        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        ObjectName name;
-        try {
-            name = new ObjectName("org.jeasy.states.jmx:type=FiniteStateMachineMonitorMBean");
-            if (!mbs.isRegistered(name)) {
-                FiniteStateMachineMonitorMBean finiteStateMachineMonitorMBean = new FiniteStateMachineMonitor(this);
-                mbs.registerMBean(finiteStateMachineMonitorMBean, name);
-                LOGGER.info("Easy States JMX MBean registered successfully as: " + name.getCanonicalName());
-            }
-        } catch (Exception e) {
-            LOGGER.log(Level.WARNING, "Unable to register Easy States JMX MBean.", e);
-        }
     }
 
     @Override

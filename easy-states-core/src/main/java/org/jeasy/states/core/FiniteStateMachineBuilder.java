@@ -27,6 +27,7 @@ package org.jeasy.states.core;
 import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
+import org.jeasy.states.jmx.FiniteStateMachineJmxMBeanConfigurator;
 
 import java.util.Set;
 
@@ -41,11 +42,13 @@ public class FiniteStateMachineBuilder {
     private FiniteStateMachineImpl finiteStateMachine;
     private FiniteStateMachineDefinitionValidator finiteStateMachineDefinitionValidator;
     private TransitionDefinitionValidator transitionDefinitionValidator;
+    private FiniteStateMachineJmxMBeanConfigurator jmxMBeanConfigurator;
 
     public FiniteStateMachineBuilder(final String name, final Set<State> states, final State initialState) {
         finiteStateMachine = new FiniteStateMachineImpl(name, states, initialState);
         finiteStateMachineDefinitionValidator = new FiniteStateMachineDefinitionValidator();
         transitionDefinitionValidator = new TransitionDefinitionValidator();
+        jmxMBeanConfigurator = new FiniteStateMachineJmxMBeanConfigurator();
     }
 
     /**
@@ -102,7 +105,7 @@ public class FiniteStateMachineBuilder {
      * @return a configured FSM Builder instance
      */
     public FiniteStateMachineBuilder activateJmxMonitoring() {
-        finiteStateMachine.configureJMXMBean();
+        jmxMBeanConfigurator.configureJMXMBean(finiteStateMachine);
         return this;
     }
 
