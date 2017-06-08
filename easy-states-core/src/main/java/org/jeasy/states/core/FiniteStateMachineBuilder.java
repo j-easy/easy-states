@@ -28,6 +28,7 @@ import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 import org.jeasy.states.jmx.FiniteStateMachineJmxMBeanConfigurator;
+import org.jeasy.states.util.Utils;
 
 import java.util.Set;
 
@@ -43,6 +44,10 @@ public class FiniteStateMachineBuilder {
     private FiniteStateMachineDefinitionValidator finiteStateMachineDefinitionValidator;
     private TransitionDefinitionValidator transitionDefinitionValidator;
     private FiniteStateMachineJmxMBeanConfigurator jmxMBeanConfigurator;
+
+    public FiniteStateMachineBuilder(final Set<State> states, final State initialState) {
+        this(Utils.DEFAULT_FINITE_STATE_MACHINE_NAME, states, initialState);
+    }
 
     public FiniteStateMachineBuilder(final String name, final Set<State> states, final State initialState) {
         finiteStateMachine = new FiniteStateMachineImpl(name, states, initialState);
