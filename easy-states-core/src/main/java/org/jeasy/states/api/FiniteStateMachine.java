@@ -52,6 +52,12 @@ public interface FiniteStateMachine {
     State getInitialState();
 
     /**
+     * Register final state
+     * @param finalState to register
+     */
+    void registerFinalState(final State finalState);
+
+    /**
      * Return FSM final states.
      * @return FSM final states
      */
@@ -62,6 +68,13 @@ public interface FiniteStateMachine {
      * @return FSM registered states
      */
     Set<State> getStates();
+
+    /**
+     * Register a transition.
+     *
+     * @param transition to register
+     */
+    void registerTransition(final Transition transition);
 
     /**
      * Return FSM registered transitions.

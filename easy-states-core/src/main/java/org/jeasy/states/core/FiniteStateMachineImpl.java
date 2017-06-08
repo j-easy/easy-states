@@ -150,11 +150,13 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
         return currentState;
     }
 
-    void registerTransition(final Transition transition) {
+    @Override
+    public void registerTransition(final Transition transition) {
         transitions.add(transition);
     }
 
-    void registerFinalState(final State finalState) {
+    @Override
+    public void registerFinalState(final State finalState) {
         finalStates.add(finalState);
     }
 
