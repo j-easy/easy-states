@@ -25,6 +25,7 @@ package org.jeasy.states.api;
 
 /**
  * Abstraction for a FSM transition.
+ * <strong>Transitions are unique according to source state and triggering event type.</strong>
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */

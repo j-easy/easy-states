@@ -41,21 +41,18 @@ import org.jeasy.states.api.Transition;
  */
 public class TransitionBuilder {
 
-    /**
-     * The transition instance to build.
-     */
     private TransitionImpl transition;
 
     /**
-     * Public constructor.
+     * Create a new {@link TransitionBuilder}.
      */
     public TransitionBuilder() {
         transition = new TransitionImpl();
     }
 
     /**
-     * Set the transition name.
-     * @param name transition name
+     * Set the name of the transition.
+     * @param name of the transition
      * @return FSM transition builder
      */
     public TransitionBuilder name(final String name) {
@@ -64,8 +61,8 @@ public class TransitionBuilder {
     }
 
     /**
-     * Set transition source state.
-     * @param sourceState transition source state
+     * Set the source state of the transition.
+     * @param sourceState of the transition
      * @return FSM transition builder
      */
     public TransitionBuilder sourceState(final State sourceState) {
@@ -74,8 +71,8 @@ public class TransitionBuilder {
     }
 
     /**
-     * Set transition target state.
-     * @param targetState transition target state
+     * Set the target state of the transition.
+     * @param targetState of the transition
      * @return FSM transition builder
      */
     public TransitionBuilder targetState(final State targetState) {
@@ -84,8 +81,8 @@ public class TransitionBuilder {
     }
 
     /**
-     * Set transition event type.
-     * @param eventType transition event type
+     * Set event type upon which the transition should be triggered.
+     * @param eventType of the transition
      * @return FSM transition builder
      */
     public TransitionBuilder eventType(final Class eventType) {
@@ -94,8 +91,8 @@ public class TransitionBuilder {
     }
 
     /**
-     * Set transition event handler. Event handler is not mandatory.
-     * @param eventHandler transition event handler
+     * Set the event handler of the transition.
+     * @param eventHandler of the transition
      * @return FSM transition builder
      */
     public TransitionBuilder eventHandler(final EventHandler eventHandler) {

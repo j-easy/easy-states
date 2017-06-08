@@ -31,10 +31,19 @@ import java.lang.management.ManagementFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This class configure a JMX MBean for a FSM instance.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ */
 public class FiniteStateMachineJmxMBeanConfigurator {
 
     private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineJmxMBeanConfigurator.class.getSimpleName());
 
+    /**
+     * Configure a JMX MBean for the FSM instance.
+     * @param finiteStateMachine for which a JMX MBean should be configured
+     */
     public void configureJMXMBean(FiniteStateMachine finiteStateMachine) {
         String finiteStateMachineName = finiteStateMachine.getName();
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();

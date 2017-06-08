@@ -22,6 +22,6 @@
  *  THE SOFTWARE.
  */
 /**
- * This package contains Easy States JMX feature implementation.
+ * This package contains JMX feature implementation.
  */
 package org.jeasy.states.jmx;

@@ -31,71 +31,23 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Easy States implementation.
- *
- * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
- */
 final class FiniteStateMachineImpl implements FiniteStateMachine {
 
     private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineImpl.class.getSimpleName());
 
-    /**
-     * FSM name.
-     */
     private String name;
-
-    /**
-     * FSM current state.
-     */
     private State currentState;
-
-    /**
-     * FSM initial state.
-     */
     private State initialState;
-
-    /**
-     * FSM final states.
-     */
     private Set<State> finalStates;
-
-    /**
-     * FSM states set. States have unique name within a FSM instance.
-     */
     private Set<State> states;
-
-    /**
-     * FSM transitions set. Transitions are unique according to source state and event type.
-     */
     private Set<Transition> transitions;
-
-    /**
-     * The last triggered event.
-     */
     private Event lastEvent;
-
-    /**
-     * The last transition made.
-     */
     private Transition lastTransition;
 
-    /**
-     * Create a new {@link FiniteStateMachine}.
-     *
-     * @param states of the machine
-     * @param initialState of the machine
-     */
     FiniteStateMachineImpl(final Set<State> states, final State initialState) {
         this(Utils.DEFAULT_FINITE_STATE_MACHINE_NAME, states, initialState);
     }
 
-    /**
-     * Create a new {@link FiniteStateMachine}.
-     * @param name of the machine
-     * @param states of the machine
-     * @param initialState of the machine
-     */
     FiniteStateMachineImpl(final String name, final Set<State> states, final State initialState) {
         this.name = name;
         this.states = states;
@@ -157,6 +109,13 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
         finalStates.add(finalState);
     }
 
+    void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
         return name;
@@ -212,7 +171,4 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
         return lastTransition;
     }
 
-    void setName(String name) {
-        this.name = name;
-    }
 }

@@ -25,20 +25,27 @@ package org.jeasy.states.api;
 
 /**
  * A class representing a FSM state.
+ * <strong>States have unique names within a FSM instance</strong>
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class State {
 
-    /**
-     * State name.
-     */
     private String name;
 
+    /**
+     * Create a new {@link State}.
+     *
+     * @param name of the state
+     */
     public State(final String name) {
         this.name = name;
     }
 
+    /**
+     * Get state name.
+     * @return state name
+     */
     public String getName() {
         return name;
     }

@@ -39,8 +39,9 @@ public class FiniteStateMachineMonitor implements FiniteStateMachineMonitorMBean
     private FiniteStateMachine finiteStateMachine;
 
     /**
-     * Public constructor.
-     * @param finiteStateMachine the FSM instance.
+     * Create a new {@link FiniteStateMachineMonitor}.
+     *
+     * @param finiteStateMachine the FSM instance to monitor
      */
     public FiniteStateMachineMonitor(final FiniteStateMachine finiteStateMachine) {
         this.finiteStateMachine = finiteStateMachine;

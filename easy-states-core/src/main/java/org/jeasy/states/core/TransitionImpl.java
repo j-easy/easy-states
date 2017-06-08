@@ -28,36 +28,12 @@ import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 import org.jeasy.states.util.Utils;
 
-/**
- * Easy States Transition implementation.
- *
- * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
- */
 final class TransitionImpl implements Transition {
 
-    /**
-     * Transition name.
-     */
     private String name;
-
-    /**
-     * Transition source state.
-     */
     private State sourceState;
-
-    /**
-     * Transition target state.
-     */
     private State targetState;
-
-    /**
-     * Transition event type.
-     */
     private Class eventType;
-
-    /**
-     * Transition event handler.
-     */
     private EventHandler eventHandler;
 
     public TransitionImpl() {

@@ -34,14 +34,7 @@ import java.util.Date;
  */
 public abstract class Event {
 
-    /**
-     * Event name.
-     */
     protected String name;
-
-    /**
-     * Event triggering time stamp.
-     */
     protected long timestamp;
 
     protected Event() {

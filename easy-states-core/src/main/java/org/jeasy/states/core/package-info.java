@@ -22,6 +22,6 @@
  *  THE SOFTWARE.
  */
 /**
- * This package contains the core Easy States implementation.
+ * This package contains the core implementation of finite state machine.
  */
 package org.jeasy.states.core;

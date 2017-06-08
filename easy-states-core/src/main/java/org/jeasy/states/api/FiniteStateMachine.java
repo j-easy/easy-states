@@ -26,7 +26,7 @@ package org.jeasy.states.api;
 import java.util.Set;
 
 /**
- * FSM interface. This is the main entry point to Easy States implementation.
+ * FSM interface. This is the main abstraction for a finite state machine.
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
@@ -82,7 +82,7 @@ public interface FiniteStateMachine {
 
     /**
      * Fire an event. According to event type, the FSM will make the right transition.
-     * @param event the event to fire
+     * @param event to fire
      * @return The next FSM state defined by the transition to make
      * @throws FiniteStateMachineException thrown if an exception occurs during event handling
      */

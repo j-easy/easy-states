@@ -22,6 +22,6 @@
  *  THE SOFTWARE.
  */
 /**
- * This package contains the public Easy States APIs.
+ * This package contains the public APIs.
  */
 package org.jeasy.states.api;

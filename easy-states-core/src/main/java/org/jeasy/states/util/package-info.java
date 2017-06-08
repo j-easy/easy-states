@@ -22,6 +22,6 @@
  *  THE SOFTWARE.
  */
 /**
- * This package contains Easy States utility classes.
+ * This package contains utility classes.
  */
 package org.jeasy.states.util;
