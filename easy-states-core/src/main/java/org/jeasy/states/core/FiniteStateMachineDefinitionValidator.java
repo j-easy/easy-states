@@ -33,26 +33,5 @@ class FiniteStateMachineDefinitionValidator {
                         Utils.dumpFSMStates(states));
             }
         }
-
-        for (State state: states) {
-
-            List<Transition> outgoingTransitions = new ArrayList<>();
-            for (Transition transition : finiteStateMachine.getTransitions()) {
-                if (transition.getSourceState().equals(state)) {
-                    outgoingTransitions.add(transition);
-                }
-            }
-            if (outgoingTransitions.size() > 1) { //if more than one transition is defined for a state, event types must be distinct
-                List<Class> eventTypes = new ArrayList<>();
-                for (Transition outgoingTransition : outgoingTransitions) {
-                    eventTypes.add(outgoingTransition.getEventType());
-                }
-                //event types must be distinct
-                Set<Class> distinctEventTypes = new HashSet<>(eventTypes);
-                if (distinctEventTypes.size() != eventTypes.size()) {
-                    throw new IllegalStateException("More than one outgoing transition is defined with same event type for state " + state.getName());
-                }
-            }
-        }
     }
 }
