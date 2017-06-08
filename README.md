@@ -144,8 +144,7 @@ Transition coinUnlocked = new TransitionBuilder()
 #### 4. And finally the finite state machine
 
 ```java
-FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, locked)
-        .named("Turnstile state machine")
+FiniteStateMachine turnstileStateMachine = new FiniteStateMachineBuilder(states, locked)
         .registerTransition(lock)
         .registerTransition(pushLocked)
         .registerTransition(unlock)
