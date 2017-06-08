@@ -26,7 +26,9 @@ package org.jeasy.states.util;
 import org.jeasy.states.api.State;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static java.util.Arrays.asList;
@@ -45,7 +47,8 @@ public class UtilsTest {
         String fsmStates = Utils.dumpFSMStates(states);
 
         // then
-        assertThat(fsmStates).isEqualTo("s1;s2;");
+        List<String> statesDump = Arrays.asList("s1;s2;", "s2;s1;");
+        assertThat(statesDump).contains(fsmStates);
     }
 
 }
