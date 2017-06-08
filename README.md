@@ -53,6 +53,20 @@ Transition t = new TransitionBuilder()
         .targetState(s1) // and make a transition to the state s1
         .build();
 ```
+
+## How to use it?
+
+Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states-core/1.0.0/) and add the `easy-states-core-1.0.0.jar` file to your application's classpath and you're done.
+If you use maven, add the following dependency to your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>org.jeasy</groupId>
+    <artifactId>easy-states-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ## Two minutes tutorial
 
 This tutorial is an implementation of the turnstile example described in <a href="http://en.wikipedia.org/wiki/Finite-state_machine">wikipedia</a>:
