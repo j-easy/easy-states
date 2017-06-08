@@ -213,4 +213,7 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
         return lastTransition;
     }
 
+    void setName(String name) {
+        this.name = name;
+    }
 }

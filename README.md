@@ -99,7 +99,8 @@ public class Launcher {
         /*
          * Build FSM instance
          */
-        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder("Turnstile state machine", states, locked)
+        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, locked)
+                .named("Turnstile state machine")
                 .registerTransition(lock)
                 .registerTransition(pushLocked)
                 .registerTransition(unlock)

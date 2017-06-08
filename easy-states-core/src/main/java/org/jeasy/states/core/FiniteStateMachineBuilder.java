@@ -28,7 +28,6 @@ import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 import org.jeasy.states.jmx.FiniteStateMachineJmxMBeanConfigurator;
-import org.jeasy.states.util.Utils;
 
 import java.util.Set;
 
@@ -45,15 +44,28 @@ public class FiniteStateMachineBuilder {
     private TransitionDefinitionValidator transitionDefinitionValidator;
     private FiniteStateMachineJmxMBeanConfigurator jmxMBeanConfigurator;
 
+    /**
+     * Create a new {@link FiniteStateMachineBuilder}.
+     *
+     * @param states set of the machine
+     * @param initialState of the machine
+     */
     public FiniteStateMachineBuilder(final Set<State> states, final State initialState) {
-        this(Utils.DEFAULT_FINITE_STATE_MACHINE_NAME, states, initialState);
-    }
-
-    public FiniteStateMachineBuilder(final String name, final Set<State> states, final State initialState) {
-        finiteStateMachine = new FiniteStateMachineImpl(name, states, initialState);
+        finiteStateMachine = new FiniteStateMachineImpl(states, initialState);
         finiteStateMachineDefinitionValidator = new FiniteStateMachineDefinitionValidator();
         transitionDefinitionValidator = new TransitionDefinitionValidator();
         jmxMBeanConfigurator = new FiniteStateMachineJmxMBeanConfigurator();
+    }
+
+    /**
+     * Set the name of the finite state machine.
+     *
+     * @param name of the machine
+     * @return the FSM builder
+     */
+    public FiniteStateMachineBuilder named(final String name) {
+        finiteStateMachine.setName(name);
+        return this;
     }
 
     /**
