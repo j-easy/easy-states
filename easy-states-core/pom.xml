@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jeasy</groupId>
         <artifactId>easy-states</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>easy-states-core</artifactId>
@@ -30,7 +30,7 @@
         <url>git@github.com:j-easy/easy-states.git</url>
         <connection>scm:git:git@github.com:j-easy/easy-states.git</connection>
         <developerConnection>scm:git:git@github.com:j-easy/easy-states.git</developerConnection>
-        <tag>easy-states-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
