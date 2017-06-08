@@ -25,6 +25,7 @@
 package org.jeasy.states.core;
 
 import org.jeasy.states.api.*;
+import org.jeasy.states.util.Utils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -80,6 +81,22 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
      */
     private Transition lastTransition;
 
+    /**
+     * Create a new {@link FiniteStateMachine}.
+     *
+     * @param states of the machine
+     * @param initialState of the machine
+     */
+    FiniteStateMachineImpl(final Set<State> states, final State initialState) {
+        this(Utils.DEFAULT_FINITE_STATE_MACHINE_NAME, states, initialState);
+    }
+
+    /**
+     * Create a new {@link FiniteStateMachine}.
+     * @param name of the machine
+     * @param states of the machine
+     * @param initialState of the machine
+     */
     FiniteStateMachineImpl(final String name, final Set<State> states, final State initialState) {
         this.name = name;
         this.states = states;

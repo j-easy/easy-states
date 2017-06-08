@@ -38,6 +38,11 @@ public final class Utils {
     private Utils() { }
 
     /**
+     * Default finite state machine name.
+     */
+    public static final String DEFAULT_FINITE_STATE_MACHINE_NAME = "finiteStateMachine";
+
+    /**
      * Default event name.
      */
     public static final String DEFAULT_EVENT_NAME = "event";
