@@ -39,8 +39,9 @@ public class FiniteStateMachineDefinitionValidatorTest {
         State s2 = new State("s2");
         State s3 = new State("s3");
         Set<State> states = new HashSet<>(Arrays.asList(s1, s2));
-        FiniteStateMachine finiteStateMachine = new FiniteStateMachineImpl(states, s1);
-        finiteStateMachine.registerFinalState(s3);
+        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, s1)
+                .registerFinalState(s3)
+                .build();
 
         // when
         validator.validateFiniteStateMachineDefinition(finiteStateMachine);
@@ -56,8 +57,6 @@ public class FiniteStateMachineDefinitionValidatorTest {
         State s2 = new State("s2");
         State s3 = new State("s3");
         Set<State> states = new HashSet<>(Arrays.asList(s1, s2, s3));
-        FiniteStateMachine finiteStateMachine = new FiniteStateMachineImpl(states, s1);
-        finiteStateMachine.registerFinalState(s2);
 
         Transition t1 = new TransitionBuilder()
                 .sourceState(s1)
@@ -71,8 +70,11 @@ public class FiniteStateMachineDefinitionValidatorTest {
                 .build();
 
         // when
-        finiteStateMachine.registerTransition(t1);
-        finiteStateMachine.registerTransition(t2);
+        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, s1)
+                .registerFinalState(s2)
+                .registerTransition(t1)
+                .registerTransition(t2)
+                .build();
 
         // then
         assertThat(finiteStateMachine.getTransitions()).containsOnly(t2); // transitions are unique according to source state and event type
