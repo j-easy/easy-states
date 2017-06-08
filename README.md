@@ -1,3 +1,27 @@
+***
+
+<div align="center">
+    <b><em>Easy States</em></b><br>
+    The simple, stupid state machine for Java&trade;
+</div>
+
+<div align="center">
+
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
+[![Coverage](https://coveralls.io/repos/j-easy/easy-states/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/j-easy/easy-states?branch=master)
+[![Build Status](https://travis-ci.org/j-easy/easy-states.svg?branch=master)](https://travis-ci.org/j-easy/easy-states)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states-core/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states-core|1.0.0|)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.jeasy/easy-states-core/badge.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states-core)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
+
+</div>
+
+***
+
+## Latest news
+
+* 08/06/2017: Version 1.0.0 is out. See release notes [here](https://github.com/j-easy/easy-states/releases).
+
 ## What is Easy States?
 
 Easy States is an event-driven [Deterministic Finite Automaton](http://en.wikipedia.org/wiki/Deterministic_finite_state_machine) implementation in Java.
@@ -17,7 +41,7 @@ Easy States provides APIs for key concepts of state machines:
 * `State`: a particular state the machine can be on at given point in time
 * `Event`: represents an event that may trigger an action and change the state of the machine
 * `Transition`: represents a transition between two states of the machine when an event occurs
-* `FinateStateMachine`: core abstraction of finite state machine
+* `FiniteStateMachine`: core abstraction of a finite state machine
 
 Using Easy States, you can define FSM transitions with an intuitive fluent API:
 
@@ -38,111 +62,84 @@ In the locked state, pushing on the arm has no effect; no matter how many times 
 Putting a coin in, that is giving the machine a coin input, shifts the state from Locked to Unlocked.
 In the unlocked state, putting additional coins in has no effect; that is, giving additional coin inputs does not change the state.
 
+<div align="center">
+
 ![turnsitle](https://raw.githubusercontent.com/j-easy/easy-states/master/easy-states-tutorials/src/main/resources/turnstile.png)
+
+</div>
 
 For this example, we define:
 
+* two states: `Locked` and `Unlocked`
 * two events: `PushEvent` and `CoinEvent`
 * two actions: `Lock` and `Unlock`
-* four transitions: `pushLocked`, `unlock`, `coinUnlocked` and `lock`
+* and four transitions: `pushLocked`, `unlock`, `coinUnlocked` and `lock`
 
-The complete code of the example is the following:
+#### 1. First, let's define states
 
 ```java
-public class Launcher {
+State locked = new State("locked");
+State unlocked = new State("unlocked");
 
-    public static void main(String[] args) throws FiniteStateMachineException {
-
-        /*
-         * Define FSM states
-         */
-        State locked = new State("locked");
-        State unlocked = new State("unlocked");
-
-        Set<State> states = new HashSet<State>();
-        states.add(locked);
-        states.add(unlocked);
-
-        /*
-         * Define FSM transitions
-         */
-        Transition unlock = new TransitionBuilder()
-                .name("unlock")
-                .sourceState(locked)
-                .eventType(CoinEvent.class)
-                .eventHandler(new Unlock())
-                .targetState(unlocked)
-                .build();
-
-        Transition pushLocked = new TransitionBuilder()
-                .name("pushLocked")
-                .sourceState(locked)
-                .eventType(PushEvent.class)
-                .targetState(locked)
-                .build();
-
-        Transition lock = new TransitionBuilder()
-                .name("lock")
-                .sourceState(unlocked)
-                .eventType(PushEvent.class)
-                .eventHandler(new Lock())
-                .targetState(locked)
-                .build();
-
-        Transition coinUnlocked = new TransitionBuilder()
-                .name("coinUnlocked")
-                .sourceState(unlocked)
-                .eventType(CoinEvent.class)
-                .targetState(unlocked)
-                .build();
-
-        /*
-         * Build FSM instance
-         */
-        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, locked)
-                .named("Turnstile state machine")
-                .registerTransition(lock)
-                .registerTransition(pushLocked)
-                .registerTransition(unlock)
-                .registerTransition(coinUnlocked)
-                .activateJmxMonitoring()
-                .build();
-
-        /*
-         * Fire some events and print FSM state
-         */
-        System.out.println("Turnstile initial state : " + finiteStateMachine.getCurrentState().getName());
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Which event do you want to fire?");
-        System.out.println("1. Push [p]");
-        System.out.println("2. Coin [c]");
-        System.out.println("Press [q] to quit tutorial.");
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.trim().equalsIgnoreCase("p")) {
-                System.out.println("input = " + input.trim());
-                System.out.println("Firing push event..");
-                finiteStateMachine.fire(new PushEvent());
-                System.out.println("Turnstile state : " + finiteStateMachine.getCurrentState().getName());
-            }
-            if (input.trim().equalsIgnoreCase("c")) {
-                System.out.println("input = " + input.trim());
-                System.out.println("Firing coin event..");
-                finiteStateMachine.fire(new CoinEvent());
-                System.out.println("Turnstile state : " + finiteStateMachine.getCurrentState().getName());
-            }
-            if (input.trim().equalsIgnoreCase("q")) {
-                System.out.println("input = " + input.trim());
-                System.out.println("Bye!");
-                System.exit(0);
-            }
-
-        }
-
-    }
-}
+Set<State> states = new HashSet<State>();
+states.add(locked);
+states.add(unlocked);
 ```
+
+#### 2. Then, define events
+
+```java
+class PushEvent extends Event { }
+class CoinEvent extends Event { }
+```
+
+#### 3. Then transitions
+
+```java
+Transition unlock = new TransitionBuilder()
+        .name("unlock")
+        .sourceState(locked)
+        .eventType(CoinEvent.class)
+        .eventHandler(new Unlock())
+        .targetState(unlocked)
+        .build();
+
+Transition pushLocked = new TransitionBuilder()
+        .name("pushLocked")
+        .sourceState(locked)
+        .eventType(PushEvent.class)
+        .targetState(locked)
+        .build();
+
+Transition lock = new TransitionBuilder()
+        .name("lock")
+        .sourceState(unlocked)
+        .eventType(PushEvent.class)
+        .eventHandler(new Lock())
+        .targetState(locked)
+        .build();
+
+Transition coinUnlocked = new TransitionBuilder()
+        .name("coinUnlocked")
+        .sourceState(unlocked)
+        .eventType(CoinEvent.class)
+        .targetState(unlocked)
+        .build();
+```
+
+#### 4. And finally the finite state machine
+
+```java
+FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, locked)
+        .named("Turnstile state machine")
+        .registerTransition(lock)
+        .registerTransition(pushLocked)
+        .registerTransition(unlock)
+        .registerTransition(coinUnlocked)
+        .build();
+```
+
+The complete code of the tutorial can be found [here](https://github.com/j-easy/easy-states/tree/master/easy-states-tutorials).
 
 To run the tutorial, please follow these instructions:
 
@@ -158,7 +155,7 @@ You will be able to fire events interactively from the console and check the evo
 
 ## License
 
-Easy States is released under the [MIT License](http://opensource.org/licenses/mit-license.php/).
+Easy States is released under the MIT License:
 
 ```
 The MIT License
