@@ -45,11 +45,7 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     private Transition lastTransition;
 
     FiniteStateMachineImpl(final Set<State> states, final State initialState) {
-        this(Utils.DEFAULT_FINITE_STATE_MACHINE_NAME, states, initialState);
-    }
-
-    FiniteStateMachineImpl(final String name, final Set<State> states, final State initialState) {
-        this.name = name;
+        this.name = Utils.DEFAULT_FINITE_STATE_MACHINE_NAME;
         this.states = states;
         this.initialState = initialState;
         currentState = initialState;
