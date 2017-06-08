@@ -33,7 +33,7 @@
 
     <modules>
         <module>easy-states-core</module>
-        <!--<module>easy-states-tutorials</module>-->
+        <module>easy-states-tutorials</module>
     </modules>
 
     <developers>
