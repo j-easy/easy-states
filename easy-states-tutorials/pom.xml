@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>easy-states-tutorials</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Easy States tutorials module</name>
     <description>Tutorials module providing samples of how to use Easy States</description>
@@ -17,7 +16,12 @@
     <developers>
         <developer>
             <id>benas</id>
-            <email>mahmoudd.benhassine@icloud.com</email>
+            <name>Mahmoud Ben Hassine</name>
+            <url>http://benas.github.io</url>
+            <email>mahmoud.benhassine@icloud.com</email>
+            <roles>
+                <role>Lead developer</role>
+            </roles>
         </developer>
     </developers>
 
@@ -27,6 +31,16 @@
         <developerConnection>scm:git:git@github.com:j-easy/easy-states.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/j-easy/easy-states/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/j-easy/easy-states</url>
+    </ciManagement>
 
     <licenses>
         <license>
@@ -39,7 +53,7 @@
         <dependency>
             <groupId>org.jeasy</groupId>
             <artifactId>easy-states-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -48,18 +62,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <verbose>true</verbose>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                    <showWarnings>true</showWarnings>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.5.1</version>
                 <executions>
                     <execution>
                         <id>copy</id>
