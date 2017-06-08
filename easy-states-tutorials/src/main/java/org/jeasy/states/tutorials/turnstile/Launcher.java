@@ -102,7 +102,6 @@ class Launcher {
                 .registerTransition(pushLocked)
                 .registerTransition(unlock)
                 .registerTransition(coinUnlocked)
-                .activateJmxMonitoring()
                 .build();
 
         /*
