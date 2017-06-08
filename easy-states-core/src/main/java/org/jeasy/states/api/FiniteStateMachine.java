@@ -33,12 +33,6 @@ import java.util.Set;
 public interface FiniteStateMachine {
 
     /**
-     * Return FSM name.
-     * @return FSM name
-     */
-    String getName();
-
-    /**
      * Return current FSM state.
      * @return current FSM state
      */

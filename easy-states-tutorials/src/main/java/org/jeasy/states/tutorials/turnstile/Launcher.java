@@ -96,8 +96,7 @@ class Launcher {
         /*
          * Build FSM instance
          */
-        FiniteStateMachine finiteStateMachine = new FiniteStateMachineBuilder(states, locked)
-                .named("Turnstile state machine")
+        FiniteStateMachine turnstileStateMachine = new FiniteStateMachineBuilder(states, locked)
                 .registerTransition(lock)
                 .registerTransition(pushLocked)
                 .registerTransition(unlock)
@@ -107,7 +106,7 @@ class Launcher {
         /*
          * Fire some events and print FSM state
          */
-        System.out.println("Turnstile initial state : " + finiteStateMachine.getCurrentState().getName());
+        System.out.println("Turnstile initial state : " + turnstileStateMachine.getCurrentState().getName());
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Which event do you want to fire?");
@@ -119,14 +118,14 @@ class Launcher {
             if (input.trim().equalsIgnoreCase("p")) {
                 System.out.println("input = " + input.trim());
                 System.out.println("Firing push event..");
-                finiteStateMachine.fire(new PushEvent());
-                System.out.println("Turnstile state : " + finiteStateMachine.getCurrentState().getName());
+                turnstileStateMachine.fire(new PushEvent());
+                System.out.println("Turnstile state : " + turnstileStateMachine.getCurrentState().getName());
             }
             if (input.trim().equalsIgnoreCase("c")) {
                 System.out.println("input = " + input.trim());
                 System.out.println("Firing coin event..");
-                finiteStateMachine.fire(new CoinEvent());
-                System.out.println("Turnstile state : " + finiteStateMachine.getCurrentState().getName());
+                turnstileStateMachine.fire(new CoinEvent());
+                System.out.println("Turnstile state : " + turnstileStateMachine.getCurrentState().getName());
             }
             if (input.trim().equalsIgnoreCase("q")) {
                 System.out.println("input = " + input.trim());

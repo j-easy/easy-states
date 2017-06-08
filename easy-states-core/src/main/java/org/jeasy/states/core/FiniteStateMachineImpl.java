@@ -24,7 +24,6 @@
 package org.jeasy.states.core;
 
 import org.jeasy.states.api.*;
-import org.jeasy.states.util.Utils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +34,6 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
 
     private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineImpl.class.getSimpleName());
 
-    private String name;
     private State currentState;
     private State initialState;
     private Set<State> finalStates;
@@ -45,7 +43,6 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     private Transition lastTransition;
 
     FiniteStateMachineImpl(final Set<State> states, final State initialState) {
-        this.name = Utils.DEFAULT_FINITE_STATE_MACHINE_NAME;
         this.states = states;
         this.initialState = initialState;
         currentState = initialState;
@@ -103,18 +100,6 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
 
     void registerFinalState(final State finalState) {
         finalStates.add(finalState);
-    }
-
-    void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getName() {
-        return name;
     }
 
     /**

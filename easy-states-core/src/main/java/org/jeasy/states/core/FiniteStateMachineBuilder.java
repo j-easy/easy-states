@@ -54,17 +54,6 @@ public class FiniteStateMachineBuilder {
     }
 
     /**
-     * Set the name of the finite state machine.
-     *
-     * @param name of the machine
-     * @return the FSM builder
-     */
-    public FiniteStateMachineBuilder named(final String name) {
-        finiteStateMachine.setName(name);
-        return this;
-    }
-
-    /**
      * Register a transition within FSM transitions set.
      * If the transition is not valid, this method may throw an {@link IllegalArgumentException}.
      * @param transition the transition to register
