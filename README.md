@@ -10,8 +10,8 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Coverage](https://coveralls.io/repos/j-easy/easy-states/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/j-easy/easy-states?branch=master)
 [![Build Status](https://travis-ci.org/j-easy/easy-states.svg?branch=master)](https://travis-ci.org/j-easy/easy-states)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states-core/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states-core|1.0.0|)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.jeasy/easy-states-core/badge.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states-core)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|1.0.1|)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.jeasy/easy-states/badge.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
 
 </div>
@@ -20,6 +20,7 @@
 
 ## Latest news
 
+* 03/07/2017: Version 1.0.1 is out. It introduces a small change in the `groupId`. See details in the [release notes](https://github.com/j-easy/easy-states/releases).
 * 08/06/2017: Version 1.0.0 is out. See release notes [here](https://github.com/j-easy/easy-states/releases).
 
 ## What is Easy States?
@@ -56,14 +57,14 @@ Transition t = new TransitionBuilder()
 
 ## How to use it?
 
-Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states-core/1.0.0/) and add the `easy-states-core-1.0.0.jar` file to your application's classpath and you're done.
+Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states/) and add the `easy-states-1.0.1.jar` file to your application's classpath and you're done.
 If you use maven, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
     <groupId>org.jeasy</groupId>
-    <artifactId>easy-states-core</artifactId>
-    <version>1.0.0</version>
+    <artifactId>easy-states</artifactId>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -78,7 +79,7 @@ In the unlocked state, putting additional coins in has no effect; that is, givin
 
 <div align="center">
 
-![turnsitle](https://raw.githubusercontent.com/j-easy/easy-states/master/easy-states-tutorials/src/main/resources/turnstile.png)
+![turnsitle](https://raw.githubusercontent.com/j-easy/easy-states/master/src/test/java/org/jeasy/states/samples/turnstile/turnstile.png)
 
 </div>
 
@@ -152,7 +153,7 @@ FiniteStateMachine turnstileStateMachine = new FiniteStateMachineBuilder(states,
         .build();
 ```
 
-The complete code of the tutorial can be found [here](https://github.com/j-easy/easy-states/tree/master/easy-states-tutorials).
+The complete code of this tutorial can be found [here](https://github.com/j-easy/easy-states/tree/master/src/test/java/org/jeasy/states/samples/turnstile).
 
 To run the tutorial, please follow these instructions:
 
@@ -160,7 +161,6 @@ To run the tutorial, please follow these instructions:
 $>git clone https://github.com/j-easy/easy-states.git
 $>cd easy-states
 $>mvn install
-$>cd easy-states-tutorials
 $>mvn exec:java -P runTurnstileTutorial
 ```
 
