@@ -20,7 +20,7 @@
 
 ## Latest news
 
-* 03/07/2017: Version 1.0.1 is out. It introduces a small change in the `groupId`. See details in the [release notes](https://github.com/j-easy/easy-states/releases).
+* 03/07/2017: Version 1.0.1 is released with a small change in the `artifactId`. See details in the [release notes](https://github.com/j-easy/easy-states/releases).
 * 08/06/2017: Version 1.0.0 is out. See release notes [here](https://github.com/j-easy/easy-states/releases).
 
 ## What is Easy States?
@@ -168,7 +168,7 @@ You will be able to fire events interactively from the console and check the evo
 
 ## License
 
-Easy States is released under the MIT License:
+Easy States is released under the terms of the MIT License:
 
 ```
 The MIT License
