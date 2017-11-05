@@ -11,7 +11,7 @@
 [![Coverage](https://coveralls.io/repos/j-easy/easy-states/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/j-easy/easy-states?branch=master)
 [![Build Status](https://travis-ci.org/j-easy/easy-states.svg?branch=master)](https://travis-ci.org/j-easy/easy-states)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|1.0.1|)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/org.jeasy/easy-states/badge.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
+[![Javadoc](https://www.javadoc.io/badge/org.jeasy/easy-states.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
 
 </div>
