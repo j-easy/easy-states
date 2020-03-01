@@ -56,8 +56,8 @@
     </issueManagement>
 
     <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.org/j-easy/easy-states</url>
+        <system>Github Actions</system>
+        <url>https://github.com/j-easy/easy-states/actions</url>
     </ciManagement>
 
     <licenses>
