@@ -2,14 +2,14 @@
 
 <div align="center">
     <b><em>Easy States</em></b><br>
-    The simple, stupid state machine for Java&trade;
+    The simple, stupid finite state machine for Java&trade;
 </div>
 
 <div align="center">
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Coverage](https://coveralls.io/repos/j-easy/easy-states/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/j-easy/easy-states?branch=master)
-[![Build Status](https://travis-ci.org/j-easy/easy-states.svg?branch=master)](https://travis-ci.org/j-easy/easy-states)
+[![Build Status](https://github.com/j-easy/easy-states/workflows/Java%20CI/badge.svg)](https://github.com/j-easy/easy-states/actions)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|1.0.1|)
 [![Javadoc](https://www.javadoc.io/badge/org.jeasy/easy-states.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
@@ -39,7 +39,7 @@ If we are in state `S` and the event `E` occurs, we should perform action(s) `A`
 
 Easy States provides APIs for key concepts of state machines:
 
-* `State`: a particular state the machine can be on at given point in time
+* `State`: a particular state on which the machine can be at a given point in time
 * `Event`: represents an event that may trigger an action and change the state of the machine
 * `Transition`: represents a transition between two states of the machine when an event occurs
 * `FiniteStateMachine`: core abstraction of a finite state machine
@@ -57,7 +57,7 @@ Transition t = new TransitionBuilder()
 
 ## How to use it?
 
-Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states/) and add the `easy-states-1.0.1.jar` file to your application's classpath and you're done.
+Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states/) the `easy-states-1.0.1.jar` file and add it to your application's classpath.
 If you use maven, add the following dependency to your `pom.xml`:
 
 ```xml
@@ -74,7 +74,7 @@ This tutorial is an implementation of the turnstile example described in <a href
 
 A turnstile has two states: `Locked` and `Unlocked`. There are two inputs that affect its state: putting a coin in the slot (coin) and pushing the arm (push).
 In the locked state, pushing on the arm has no effect; no matter how many times the input push is given it stays in the locked state.
-Putting a coin in, that is giving the machine a coin input, shifts the state from Locked to Unlocked.
+Putting a coin in, that is giving the machine a coin input, shifts the state from `Locked` to `Unlocked`.
 In the unlocked state, putting additional coins in has no effect; that is, giving additional coin inputs does not change the state.
 
 <div align="center">
@@ -173,7 +173,7 @@ Easy States is released under the terms of the MIT License:
 ```
 The MIT License
 
-   Copyright (c) 2017, Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+   Copyright (c) 2020, Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
