@@ -85,7 +85,7 @@ public class TransitionBuilder {
      * @param eventType of the transition
      * @return FSM transition builder
      */
-    public TransitionBuilder eventType(final Class eventType) {
+    public TransitionBuilder eventType(final Class<?> eventType) {
         transition.setEventType(eventType);
         return this;
     }

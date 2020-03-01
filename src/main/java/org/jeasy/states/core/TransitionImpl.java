@@ -33,7 +33,7 @@ final class TransitionImpl implements Transition {
     private String name;
     private State sourceState;
     private State targetState;
-    private Class eventType;
+    private Class<?> eventType;
     private EventHandler eventHandler;
 
     public TransitionImpl() {
@@ -64,11 +64,11 @@ final class TransitionImpl implements Transition {
         this.name = name;
     }
 
-    public Class getEventType() {
+    public Class<?> getEventType() {
         return eventType;
     }
 
-    public void setEventType(Class eventType) {
+    public void setEventType(Class<?> eventType) {
         this.eventType = eventType;
     }
 
