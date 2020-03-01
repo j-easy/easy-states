@@ -27,7 +27,11 @@ import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 
+import java.io.IOException;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  * FSM builder : this class is the main entry point to build FSM instances.
@@ -36,6 +40,19 @@ import java.util.Set;
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class FiniteStateMachineBuilder {
+
+    private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineBuilder.class.getName());
+
+    static {
+        try {
+            if (System.getProperty("java.util.logging.config.file") == null &&
+                    System.getProperty("java.util.logging.config.class") == null) {
+                LogManager.getLogManager().readConfiguration(FiniteStateMachineBuilder.class.getResourceAsStream("/logging.properties"));
+            }
+        } catch (IOException e) {
+            LOGGER.log(Level.WARNING, "Unable to load log configuration file", e);
+        }
+    }
 
     private FiniteStateMachineImpl finiteStateMachine;
     private FiniteStateMachineDefinitionValidator finiteStateMachineDefinitionValidator;
