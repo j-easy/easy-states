@@ -12,6 +12,7 @@
     <artifactId>easy-states</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
     <name>Easy States</name>
     <description>An Event-Driven Deterministic Finite Automaton implementation in Java</description>
     <url>https://github.com/j-easy/easy-states</url>
@@ -19,15 +20,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <junit.version>4.12</junit.version>
-        <assertj.version>2.6.0</assertj.version>
-        <mockito.version>2.7.1</mockito.version>
+        <junit.version>4.13</junit.version>
+        <assertj.version>3.15.0</assertj.version>
+        <mockito.version>3.3.0</mockito.version>
+
         <maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
         <maven-coveralls-plugin.version>4.3.0</maven-coveralls-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
     </properties>
 
     <developers>
@@ -139,7 +142,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
+                    <doclint>none</doclint>
                 </configuration>
                 <executions>
                     <execution>
@@ -162,7 +165,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.6.0</version>
+                        <version>${maven-exec-plugin.version}</version>
                         <configuration>
                             <mainClass>org.jeasy.states.samples.turnstile.Launcher</mainClass>
                             <classpathScope>test</classpathScope>
