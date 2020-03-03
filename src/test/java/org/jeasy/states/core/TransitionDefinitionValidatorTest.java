@@ -23,7 +23,7 @@
  */
 package org.jeasy.states.core;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
@@ -32,8 +32,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class TransitionDefinitionValidatorTest {
 
@@ -131,6 +129,6 @@ public class TransitionDefinitionValidatorTest {
         // expected exception
     }
 
-    private class DummyEvent extends Event { }
+    private class DummyEvent extends AbstractEvent { }
 
 }

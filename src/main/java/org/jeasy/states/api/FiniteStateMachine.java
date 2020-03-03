@@ -66,7 +66,7 @@ public interface FiniteStateMachine {
      * Return the last triggered event.
      * @return the last triggered event
      */
-    Event getLastEvent();
+    AbstractEvent getLastEvent();
 
     /**
      * Return the last transition made.
@@ -80,6 +80,6 @@ public interface FiniteStateMachine {
      * @return The next FSM state defined by the transition to make
      * @throws FiniteStateMachineException thrown if an exception occurs during event handling
      */
-    State fire(Event event) throws FiniteStateMachineException;
+    State fire(AbstractEvent event) throws FiniteStateMachineException;
 
 }

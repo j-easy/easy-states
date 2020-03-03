@@ -35,6 +35,6 @@ public interface EventHandler {
      * @param event the triggered event
      * @throws Exception thrown if a problem occurs during action performing
      */
-    void handleEvent(Event event) throws Exception;
+    void handleEvent(AbstractEvent event) throws Exception;
 
 }

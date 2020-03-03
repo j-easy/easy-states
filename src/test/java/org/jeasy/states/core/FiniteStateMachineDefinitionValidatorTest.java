@@ -23,7 +23,7 @@
  */
 package org.jeasy.states.core;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
@@ -103,6 +103,6 @@ public class FiniteStateMachineDefinitionValidatorTest {
         assertThat(finiteStateMachine.getTransitions()).containsOnly(t2); // transitions are unique according to source state and event type
     }
 
-    private class DummyEvent extends Event { }
+    private class DummyEvent extends AbstractEvent { }
 
 }

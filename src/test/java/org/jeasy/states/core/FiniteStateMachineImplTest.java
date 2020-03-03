@@ -23,7 +23,7 @@
  */
 package org.jeasy.states.core;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 import org.jeasy.states.api.EventHandler;
 import org.jeasy.states.api.FiniteStateMachineException;
 import org.jeasy.states.api.State;
@@ -156,7 +156,7 @@ public class FiniteStateMachineImplTest {
         Assertions.assertThat(stateMachine.getCurrentState()).isEqualTo(s1);
     }
 
-    private class MoveEvent extends Event { }
+    private class MoveEvent extends AbstractEvent { }
 
-    private class StayEvent extends Event { }
+    private class StayEvent extends AbstractEvent { }
 }

@@ -23,7 +23,7 @@
  */
 package org.jeasy.states.core;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 import org.assertj.core.api.Assertions;
@@ -86,7 +86,7 @@ public class TransitionImplTest {
         Assertions.assertThat(equals).isFalse();
     }
 
-    private class DummyEvent extends Event { }
-    private class AnotherDummyEvent extends Event { }
+    private class DummyEvent extends AbstractEvent { }
+    private class AnotherDummyEvent extends AbstractEvent { }
 
 }

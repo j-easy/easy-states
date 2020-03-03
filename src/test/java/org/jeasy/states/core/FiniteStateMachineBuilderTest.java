@@ -23,7 +23,7 @@
  */
 package org.jeasy.states.core;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
@@ -130,7 +130,7 @@ public class FiniteStateMachineBuilderTest {
         assertThat(finiteStateMachine.getFinalStates()).contains(s2, s3);
     }
 
-    private class DummyEvent extends Event { }
-    private class AnotherDummyEvent extends Event { }
+    private class DummyEvent extends AbstractEvent { }
+    private class AnotherDummyEvent extends AbstractEvent { }
 
 }

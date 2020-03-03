@@ -23,9 +23,9 @@
  */
 package org.jeasy.states.samples.turnstile;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 
-class CoinEvent extends Event {
+class CoinEvent extends AbstractEvent {
 
     public CoinEvent() {
         super("CoinEvent");

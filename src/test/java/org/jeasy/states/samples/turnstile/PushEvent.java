@@ -23,9 +23,9 @@
  */
 package org.jeasy.states.samples.turnstile;
 
-import org.jeasy.states.api.Event;
+import org.jeasy.states.api.AbstractEvent;
 
-class PushEvent extends Event {
+class PushEvent extends AbstractEvent {
 
     public PushEvent() {
         super("PushEvent");

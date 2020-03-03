@@ -32,17 +32,17 @@ import java.util.Date;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-public abstract class Event {
+public abstract class AbstractEvent {
 
     protected String name;
     protected long timestamp;
 
-    protected Event() {
+    protected AbstractEvent() {
         this.name = Utils.DEFAULT_EVENT_NAME;
         timestamp = System.currentTimeMillis();
     }
 
-    protected Event(final String name) {
+    protected AbstractEvent(final String name) {
         this.name = name;
         timestamp = System.currentTimeMillis();
     }
