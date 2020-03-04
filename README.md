@@ -68,6 +68,8 @@ If you use maven, add the following dependency to your `pom.xml`:
 </dependency>
 ```
 
+Easy States requires a Java 7+ runtime.
+
 ## Two minutes tutorial
 
 This tutorial is an implementation of the turnstile example described in <a href="http://en.wikipedia.org/wiki/Finite-state_machine">wikipedia</a>:
