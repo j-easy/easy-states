@@ -32,7 +32,7 @@ import java.util.Date;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-public abstract class AbstractEvent {
+public abstract class AbstractEvent implements Event {
 
     protected String name;
     protected long timestamp;
