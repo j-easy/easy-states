@@ -23,18 +23,19 @@
  */
 package org.jeasy.states.core;
 
+import org.jeasy.states.api.Event;
 import org.jeasy.states.api.EventHandler;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
 import org.jeasy.states.util.Utils;
 
-final class TransitionImpl implements Transition {
+final class TransitionImpl<E extends Event> implements Transition {
 
     private String name;
     private State sourceState;
     private State targetState;
-    private Class<?> eventType;
-    private EventHandler eventHandler;
+    private Class<E> eventType;
+    private EventHandler<E> eventHandler;
 
     public TransitionImpl() {
         name = Utils.DEFAULT_TRANSITION_NAME;
@@ -64,19 +65,19 @@ final class TransitionImpl implements Transition {
         this.name = name;
     }
 
-    public Class<?> getEventType() {
+    public Class<E> getEventType() {
         return eventType;
     }
 
-    public void setEventType(Class<?> eventType) {
+    public void setEventType(Class<E> eventType) {
         this.eventType = eventType;
     }
 
-    public EventHandler getEventHandler() {
+    public EventHandler<? extends Event> getEventHandler() {
         return eventHandler;
     }
 
-    public void setEventHandler(EventHandler eventHandler) {
+    public void setEventHandler(EventHandler<E> eventHandler) {
         this.eventHandler = eventHandler;
     }
 

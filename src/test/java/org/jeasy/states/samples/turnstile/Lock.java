@@ -23,17 +23,15 @@
  */
 package org.jeasy.states.samples.turnstile;
 
-import org.jeasy.states.api.AbstractEvent;
-import org.jeasy.states.api.EventHandler;
-
 import java.util.Date;
 
-class Lock implements EventHandler {
+import org.jeasy.states.api.EventHandler;
 
-    public void handleEvent(AbstractEvent event) throws Exception {
+class Lock implements EventHandler<PushEvent> {
+
+    public void handleEvent(PushEvent event) {
         System.out.println("Notified about event '" + event.getName() + "' triggered at " + new Date(event.getTimestamp()));
         System.out.println("Locking turnstile..");
-
     }
 
 }

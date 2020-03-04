@@ -23,6 +23,7 @@
  */
 package org.jeasy.states.core;
 
+import org.jeasy.states.api.Event;
 import org.jeasy.states.api.EventHandler;
 import org.jeasy.states.api.State;
 import org.jeasy.states.api.Transition;
@@ -85,7 +86,7 @@ public class TransitionBuilder {
      * @param eventType of the transition
      * @return FSM transition builder
      */
-    public TransitionBuilder eventType(final Class<?> eventType) {
+    public TransitionBuilder eventType(final Class<? extends Event> eventType) {
         transition.setEventType(eventType);
         return this;
     }
@@ -95,7 +96,7 @@ public class TransitionBuilder {
      * @param eventHandler of the transition
      * @return FSM transition builder
      */
-    public TransitionBuilder eventHandler(final EventHandler eventHandler) {
+    public <E extends Event> TransitionBuilder eventHandler(final EventHandler<E> eventHandler) {
         transition.setEventHandler(eventHandler);
         return this;
     }

@@ -23,14 +23,13 @@
  */
 package org.jeasy.states.samples.turnstile;
 
-import org.jeasy.states.api.AbstractEvent;
-import org.jeasy.states.api.EventHandler;
-
 import java.util.Date;
 
-class Unlock implements EventHandler {
+import org.jeasy.states.api.EventHandler;
 
-    public void handleEvent(AbstractEvent event) throws Exception {
+class Unlock implements EventHandler<CoinEvent> {
+
+    public void handleEvent(CoinEvent event) {
         System.out.println("Notified about event '" + event.getName() + "' triggered at " + new Date(event.getTimestamp()));
         System.out.println("Unlocking turnstile..");
     }

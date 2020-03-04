@@ -39,7 +39,7 @@ public class FiniteStateMachineException extends Exception {
     /**
      * The event triggered when the exception occurred.
      */
-    private AbstractEvent event;
+    private Event event;
 
     /**
      * The root cause of the exception.
@@ -53,7 +53,7 @@ public class FiniteStateMachineException extends Exception {
      * @param event triggered when the exception occurred
      * @param cause root cause of the exception
      */
-    public FiniteStateMachineException(final Transition transition, final AbstractEvent event, final Throwable cause) {
+    public FiniteStateMachineException(final Transition transition, final Event event, final Throwable cause) {
         this.transition = transition;
         this.event = event;
         this.cause = cause;
@@ -71,7 +71,7 @@ public class FiniteStateMachineException extends Exception {
      * Get the event triggered when the exception occurred.
      * @return the event triggered when the exception occurred.
      */
-    public AbstractEvent getEvent() {
+    public Event getEvent() {
         return event;
     }
 

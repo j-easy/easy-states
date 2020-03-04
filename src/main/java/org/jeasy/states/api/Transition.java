@@ -53,7 +53,7 @@ public interface Transition  {
      * Return fired event type upon which the transition should be made.
      * @return Event type class
      */
-    Class<?> getEventType();
+    Class<? extends Event> getEventType();
 
     /**
      * Return event handler to execute when an event is fired.

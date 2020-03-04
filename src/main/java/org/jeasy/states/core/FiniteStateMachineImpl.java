@@ -39,7 +39,7 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     private Set<State> finalStates;
     private Set<State> states;
     private Set<Transition> transitions;
-    private AbstractEvent lastEvent;
+    private Event lastEvent;
     private Transition lastTransition;
 
     FiniteStateMachineImpl(final Set<State> states, final State initialState) {
@@ -54,7 +54,8 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
      * {@inheritDoc}
      */
     @Override
-    public final synchronized State fire(final AbstractEvent event) throws FiniteStateMachineException {
+    @SuppressWarnings("unchecked")
+    public final synchronized State fire(final Event event) throws FiniteStateMachineException {
 
         if (!finalStates.isEmpty() && finalStates.contains(currentState)) {
             LOGGER.log(Level.WARNING, "FSM is in final state '" + currentState.getName() + "', event " + event + " is ignored.");
@@ -143,7 +144,7 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     }
 
     @Override
-    public AbstractEvent getLastEvent() {
+    public Event getLastEvent() {
         return lastEvent;
     }
 

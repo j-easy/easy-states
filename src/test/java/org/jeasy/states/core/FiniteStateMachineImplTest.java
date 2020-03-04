@@ -46,7 +46,7 @@ public class FiniteStateMachineImplTest {
 
     private State s1, s2;
     @Mock
-    private EventHandler eventHandler;
+    private EventHandler<MoveEvent> eventHandler;
     private FiniteStateMachineImpl stateMachine;
 
     @Before

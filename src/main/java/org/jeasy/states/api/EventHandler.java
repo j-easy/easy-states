@@ -28,13 +28,13 @@ package org.jeasy.states.api;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-public interface EventHandler {
+public interface EventHandler<E extends Event> {
 
     /**
      * Action method to execute when an event occurs.
      * @param event the triggered event
      * @throws Exception thrown if a problem occurs during action performing
      */
-    void handleEvent(AbstractEvent event) throws Exception;
+    void handleEvent(E event) throws Exception;
 
 }
