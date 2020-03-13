@@ -10,7 +10,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Coverage](https://coveralls.io/repos/j-easy/easy-states/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/j-easy/easy-states?branch=master)
 [![Build Status](https://github.com/j-easy/easy-states/workflows/Java%20CI/badge.svg)](https://github.com/j-easy/easy-states/actions)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|1.0.1|)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|2.0.0|)
 [![Javadoc](https://www.javadoc.io/badge/org.jeasy/easy-states.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
 
@@ -20,8 +20,7 @@
 
 ## Latest news
 
-* 03/07/2017: Version 1.0.1 is released with a small change in the `artifactId`. See details in the [release notes](https://github.com/j-easy/easy-states/releases).
-* 08/06/2017: Version 1.0.0 is out. See release notes [here](https://github.com/j-easy/easy-states/releases).
+* 13/03/2020: Version 2.0.0 is now released! This version is based on Java 8 and comes with a number of enhancements. Take a look at the [release notes](https://github.com/j-easy/easy-states/releases) for all details.
 
 ## What is Easy States?
 
@@ -57,18 +56,18 @@ Transition t = new TransitionBuilder()
 
 ## How to use it?
 
-Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states/) the `easy-states-1.0.1.jar` file and add it to your application's classpath.
+Easy States has no dependencies. You can [download](https://repo.maven.apache.org/maven2/org/jeasy/easy-states/) the `easy-states-2.0.0.jar` file and add it to your application's classpath.
 If you use maven, add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
     <groupId>org.jeasy</groupId>
     <artifactId>easy-states</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-Easy States requires a Java 7+ runtime.
+Easy States requires a Java 8+ runtime.
 
 ## Two minutes tutorial
 
@@ -98,7 +97,7 @@ For this example, we define:
 State locked = new State("locked");
 State unlocked = new State("unlocked");
 
-Set<State> states = new HashSet<State>();
+Set<State> states = new HashSet<>();
 states.add(locked);
 states.add(unlocked);
 ```
@@ -106,8 +105,8 @@ states.add(unlocked);
 #### 2. Then, define events
 
 ```java
-class PushEvent extends Event { }
-class CoinEvent extends Event { }
+class PushEvent extends AbstractEvent { }
+class CoinEvent extends AbstractEvent { }
 ```
 
 #### 3. Then transitions
