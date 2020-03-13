@@ -40,7 +40,7 @@ public class FiniteStateMachineDefinitionValidatorTest {
     private FiniteStateMachineDefinitionValidator validator = new FiniteStateMachineDefinitionValidator();
 
     @Test(expected = IllegalStateException.class)
-    public void whenInitialStateDoesNotBelongToMachineStates_thenShouldThrowIllegalStateException() throws Exception {
+    public void whenInitialStateDoesNotBelongToMachineStates_thenShouldThrowIllegalStateException() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -56,7 +56,7 @@ public class FiniteStateMachineDefinitionValidatorTest {
     }
 
     @Test(expected = IllegalStateException.class)
-    public void whenFinalStateDoesNotBelongToMachineStates_thenShouldThrowIllegalStateException() throws Exception {
+    public void whenFinalStateDoesNotBelongToMachineStates_thenShouldThrowIllegalStateException() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -74,7 +74,7 @@ public class FiniteStateMachineDefinitionValidatorTest {
     }
 
     @Test
-    public void whenRegisterTwoTransitionsWithSameSourceStateAndEventType_thenOnlyTheLatestOneShouldBeRegistered() throws Exception {
+    public void whenRegisterTwoTransitionsWithSameSourceStateAndEventType_thenOnlyTheLatestOneShouldBeRegistered() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -103,6 +103,6 @@ public class FiniteStateMachineDefinitionValidatorTest {
         assertThat(finiteStateMachine.getTransitions()).containsOnly(t2); // transitions are unique according to source state and event type
     }
 
-    private class DummyEvent extends AbstractEvent { }
+    private static class DummyEvent extends AbstractEvent { }
 
 }

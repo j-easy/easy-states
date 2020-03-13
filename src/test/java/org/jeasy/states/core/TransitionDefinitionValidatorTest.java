@@ -38,7 +38,7 @@ public class TransitionDefinitionValidatorTest {
     private TransitionDefinitionValidator transitionDefinitionValidator = new TransitionDefinitionValidator();
 
     @Test(expected = IllegalArgumentException.class)
-    public void sourceStateMustBeDefined() throws Exception {
+    public void sourceStateMustBeDefined() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -60,7 +60,7 @@ public class TransitionDefinitionValidatorTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void sourceStateMustBeDeclaredInFSMStates() throws Exception {
+    public void sourceStateMustBeDeclaredInFSMStates() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -84,7 +84,7 @@ public class TransitionDefinitionValidatorTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void targetStateMustBeDefined() throws Exception {
+    public void targetStateMustBeDefined() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -106,7 +106,7 @@ public class TransitionDefinitionValidatorTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void targetStateMustBeDeclaredInFSMStates() throws Exception {
+    public void targetStateMustBeDeclaredInFSMStates() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -129,6 +129,6 @@ public class TransitionDefinitionValidatorTest {
         // expected exception
     }
 
-    private class DummyEvent extends AbstractEvent { }
+    private static class DummyEvent extends AbstractEvent { }
 
 }

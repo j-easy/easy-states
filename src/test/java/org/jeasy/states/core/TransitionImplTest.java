@@ -32,10 +32,10 @@ import org.junit.Test;
 public class TransitionImplTest {
 
     private State s1 = new State("s1");
-    private State s2 = new State("s");
+    private State s2 = new State("s2");
 
     @Test
-    public void whenTwoTransitionsHaveTheSameSourceStateAndTheSameTriggeringEvent_thenTheyShouldBeEqual() throws Exception {
+    public void whenTwoTransitionsHaveTheSameSourceStateAndTheSameTriggeringEvent_thenTheyShouldBeEqual() {
         // Given
         Transition t1 = new TransitionBuilder().sourceState(s1).eventType(DummyEvent.class).build();
         Transition t2 = new TransitionBuilder().sourceState(s1).eventType(DummyEvent.class).build();
@@ -48,7 +48,7 @@ public class TransitionImplTest {
     }
 
     @Test
-    public void whenTwoTransitionsHaveTheSameSourceStateButDifferentTriggeringEvent_thenTheyShouldNotBeEqual() throws Exception {
+    public void whenTwoTransitionsHaveTheSameSourceStateButDifferentTriggeringEvent_thenTheyShouldNotBeEqual() {
         // Given
         Transition t1 = new TransitionBuilder().sourceState(s1).eventType(DummyEvent.class).build();
         Transition t2 = new TransitionBuilder().sourceState(s1).eventType(AnotherDummyEvent.class).build();
@@ -61,7 +61,7 @@ public class TransitionImplTest {
     }
 
     @Test
-    public void whenTwoTransitionsHaveTheSameTriggeringEventButDifferentSourceState_thenTheyShouldNotBeEqual() throws Exception {
+    public void whenTwoTransitionsHaveTheSameTriggeringEventButDifferentSourceState_thenTheyShouldNotBeEqual() {
         // Given
         Transition t1 = new TransitionBuilder().sourceState(s1).eventType(DummyEvent.class).build();
         Transition t2 = new TransitionBuilder().sourceState(s2).eventType(DummyEvent.class).build();
@@ -74,7 +74,7 @@ public class TransitionImplTest {
     }
 
     @Test
-    public void whenTwoTransitionsHaveDifferentTriggeringEventsAndDifferentSourceStates_thenTheyShouldNotBeEqual() throws Exception {
+    public void whenTwoTransitionsHaveDifferentTriggeringEventsAndDifferentSourceStates_thenTheyShouldNotBeEqual() {
         // Given
         Transition t1 = new TransitionBuilder().sourceState(s1).eventType(DummyEvent.class).build();
         Transition t2 = new TransitionBuilder().sourceState(s2).eventType(AnotherDummyEvent.class).build();
@@ -86,7 +86,7 @@ public class TransitionImplTest {
         Assertions.assertThat(equals).isFalse();
     }
 
-    private class DummyEvent extends AbstractEvent { }
-    private class AnotherDummyEvent extends AbstractEvent { }
+    private static class DummyEvent extends AbstractEvent { }
+    private static class AnotherDummyEvent extends AbstractEvent { }
 
 }

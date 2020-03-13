@@ -57,12 +57,10 @@ public abstract class AbstractEvent implements Event {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Event");
-        sb.append("{name='").append(name).append('\'');
-        sb.append(", timestamp=").append(new Date(timestamp));
-        sb.append('}');
-        return sb.toString();
+        return "Event" +
+                "{name='" + name + '\'' +
+                ", timestamp=" + new Date(timestamp) +
+                '}';
     }
 
 }

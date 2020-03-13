@@ -50,7 +50,7 @@ public class FiniteStateMachineImplTest {
     private FiniteStateMachineImpl stateMachine;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         s1 = new State("s1");
         s2 = new State("s2");
         Set<State> states = new HashSet<>();
@@ -156,7 +156,7 @@ public class FiniteStateMachineImplTest {
         Assertions.assertThat(stateMachine.getCurrentState()).isEqualTo(s1);
     }
 
-    private class MoveEvent extends AbstractEvent { }
+    private static class MoveEvent extends AbstractEvent { }
 
-    private class StayEvent extends AbstractEvent { }
+    private static class StayEvent extends AbstractEvent { }
 }

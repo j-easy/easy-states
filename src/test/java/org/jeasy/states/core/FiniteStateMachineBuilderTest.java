@@ -37,7 +37,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FiniteStateMachineBuilderTest {
 
     @Test
-    public void testRegisterTransition() throws Exception {
+    public void testRegisterTransition() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -59,7 +59,7 @@ public class FiniteStateMachineBuilderTest {
     }
 
     @Test
-    public void testRegisterTransitions() throws Exception {
+    public void testRegisterTransitions() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -90,7 +90,7 @@ public class FiniteStateMachineBuilderTest {
     }
 
     @Test
-    public void testRegisterFinalState() throws Exception {
+    public void testRegisterFinalState() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -108,7 +108,7 @@ public class FiniteStateMachineBuilderTest {
     }
 
     @Test
-    public void testRegisterFinalStates() throws Exception {
+    public void testRegisterFinalStates() {
         // given
         State s1 = new State("s1");
         State s2 = new State("s2");
@@ -130,7 +130,7 @@ public class FiniteStateMachineBuilderTest {
         assertThat(finiteStateMachine.getFinalStates()).contains(s2, s3);
     }
 
-    private class DummyEvent extends AbstractEvent { }
-    private class AnotherDummyEvent extends AbstractEvent { }
+    private static class DummyEvent extends AbstractEvent { }
+    private static class AnotherDummyEvent extends AbstractEvent { }
 
 }

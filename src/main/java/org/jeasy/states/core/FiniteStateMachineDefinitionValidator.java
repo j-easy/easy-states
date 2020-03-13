@@ -25,12 +25,8 @@ package org.jeasy.states.core;
 
 import org.jeasy.states.api.FiniteStateMachine;
 import org.jeasy.states.api.State;
-import org.jeasy.states.api.Transition;
 import org.jeasy.states.util.Utils;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 class FiniteStateMachineDefinitionValidator {

@@ -29,7 +29,7 @@ import org.junit.Test;
 public class StateTest {
 
     @Test
-    public void whenTwoStatesHaveTheSameName_thenTheyShouldBeEqual() throws Exception {
+    public void whenTwoStatesHaveTheSameName_thenTheyShouldBeEqual() {
         // Given
         State s1 = new State("s1");
         State s2 = new State("s1");
@@ -42,7 +42,7 @@ public class StateTest {
     }
 
     @Test
-    public void whenTwoStatesHaveDifferentNames_thenTheyShouldNotBeEqual() throws Exception {
+    public void whenTwoStatesHaveDifferentNames_thenTheyShouldNotBeEqual() {
         // Given
         State s1 = new State("s1");
         State s2 = new State("s2");

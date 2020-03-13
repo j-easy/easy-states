@@ -55,7 +55,7 @@ class Launcher {
         State locked = new State("locked");
         State unlocked = new State("unlocked");
 
-        Set<State> states = new HashSet<State>();
+        Set<State> states = new HashSet<>();
         states.add(locked);
         states.add(unlocked);
 
