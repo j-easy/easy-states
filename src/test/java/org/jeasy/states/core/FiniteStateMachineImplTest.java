@@ -154,6 +154,7 @@ public class FiniteStateMachineImplTest {
 
         // Then
         Assertions.assertThat(stateMachine.getCurrentState()).isEqualTo(s1);
+        Mockito.verifyNoInteractions(eventHandler);
     }
 
     private static class MoveEvent extends AbstractEvent { }
