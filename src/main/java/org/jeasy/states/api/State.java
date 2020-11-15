@@ -31,7 +31,7 @@ package org.jeasy.states.api;
  */
 public class State {
 
-    private String name;
+    private final String name;
 
     /**
      * Create a new {@link State}.

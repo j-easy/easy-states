@@ -42,7 +42,7 @@ import org.jeasy.states.api.Transition;
  */
 public class TransitionBuilder {
 
-    private TransitionImpl transition;
+    private final TransitionImpl transition;
 
     /**
      * Create a new {@link TransitionBuilder}.

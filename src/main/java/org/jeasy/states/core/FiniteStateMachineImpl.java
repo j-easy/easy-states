@@ -35,10 +35,10 @@ final class FiniteStateMachineImpl implements FiniteStateMachine {
     private static final Logger LOGGER = Logger.getLogger(FiniteStateMachineImpl.class.getSimpleName());
 
     private State currentState;
-    private State initialState;
-    private Set<State> finalStates;
-    private Set<State> states;
-    private Set<Transition> transitions;
+    private final State initialState;
+    private final Set<State> finalStates;
+    private final Set<State> states;
+    private final Set<Transition> transitions;
     private Event lastEvent;
     private Transition lastTransition;
 

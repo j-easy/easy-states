@@ -54,9 +54,9 @@ public class FiniteStateMachineBuilder {
         }
     }
 
-    private FiniteStateMachineImpl finiteStateMachine;
-    private FiniteStateMachineDefinitionValidator finiteStateMachineDefinitionValidator;
-    private TransitionDefinitionValidator transitionDefinitionValidator;
+    private final FiniteStateMachineImpl finiteStateMachine;
+    private final FiniteStateMachineDefinitionValidator finiteStateMachineDefinitionValidator;
+    private final TransitionDefinitionValidator transitionDefinitionValidator;
 
     /**
      * Create a new {@link FiniteStateMachineBuilder}.
