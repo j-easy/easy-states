@@ -11,7 +11,6 @@
 [![Build Status](https://github.com/j-easy/easy-states/workflows/Java%20CI/badge.svg)](https://github.com/j-easy/easy-states/actions)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jeasy/easy-states/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|org.jeasy|easy-states|2.0.0|)
 [![Javadoc](https://www.javadoc.io/badge/org.jeasy/easy-states.svg)](http://www.javadoc.io/doc/org.jeasy/easy-states)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/j-easy/easy-states)
 
 </div>
 
